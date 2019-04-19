@@ -1,6 +1,7 @@
 const emailCheck = require('email-check')
 
 const checker = (email, count) => {
+  console.log('Checking ' + email)
   return emailCheck(email, {
     from: 'he@corylogan.com',
     host: 'mx.zoho.com',
@@ -24,7 +25,7 @@ const checker = (email, count) => {
 // })
 var appRouter = function (app) {
   app.post("/", function(req, res) {
-    emailCheck(req.body.email, 0)
+    checker(req.body.email, 0)
     .then(function (res) {
       res.status(200).send({valid: res});
     }).catch(function (err) {
