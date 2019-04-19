@@ -27,10 +27,10 @@ const checker = (email, count) => {
 var appRouter = function (app) {
   app.post("/", function(req, res) {
     checker(req.body.email, 0)
-    .then(function (res) {
+    .then(function (valid) {
       console.log('got back from checker')
-      console.log(res)
-      res.status(200).send({valid: res});
+      console.log(valid)
+      res.status(200).send({valid});
     }).catch(function (err) {
       console.log('hit error')
       console.log(err)
