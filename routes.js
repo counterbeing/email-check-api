@@ -32,6 +32,8 @@ var appRouter = function (app) {
       console.log(res)
       res.status(200).send({valid: res});
     }).catch(function (err) {
+      console.log('hit error')
+      console.log(err)
       res.status(200).send({valid: false});
     });
   });
