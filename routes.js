@@ -1,8 +1,5 @@
 const emailCheck = require('email-check')
 
-const emailCheck = require('email-check')
-
-
 const checker = (email, count) => {
   return emailCheck(email, {
     from: 'he@corylogan.com',
