@@ -7,6 +7,7 @@ const checker = (email, count) => {
     host: 'mx.zoho.com',
     timeout: 3000
   }).then(function (res) {
+    console.log('emailCheck resolved...')
     if(count < 1 && res === false) {
       console.log('likely bad, retrying once');
       return checker(email, count + 1)
@@ -27,6 +28,7 @@ var appRouter = function (app) {
   app.post("/", function(req, res) {
     checker(req.body.email, 0)
     .then(function (res) {
+      console.log('got back from checker')
       res.status(200).send({valid: res});
     }).catch(function (err) {
       res.status(200).send({valid: false});
