@@ -29,6 +29,7 @@ var appRouter = function (app) {
     checker(req.body.email, 0)
     .then(function (res) {
       console.log('got back from checker')
+      console.log(res)
       res.status(200).send({valid: res});
     }).catch(function (err) {
       res.status(200).send({valid: false});
