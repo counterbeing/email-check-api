@@ -20,20 +20,14 @@ const checker = (email, count) => {
   });
 }
 
-// const email = 'he@corylogan.com'
-// checker(email, 0).then((result) => {
-//         console.log(email + ' ' + result)
-// })
 var appRouter = function (app) {
   app.post("/", function(req, res) {
     checker(req.body.email, 0)
     .then(function (valid) {
-      console.log('got back from checker')
       console.log(valid)
       res.status(200).send({valid});
     }).catch(function (err) {
-      console.log('hit error')
-      console.log(err)
+      console.error(err)
       res.status(200).send({valid: false});
     });
   });
