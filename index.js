@@ -3,14 +3,13 @@ var cors = require('cors');
 var bodyParser = require("body-parser");
 var routes = require("./routes.js");
 var app = express();
-var cors = require('cors');
 
+app.use(cors());
 app.use(authChecker);
 function authChecker(req, res, next) {
     if(req.headers["api-key"] !== 1234) {
       next();
     }
-
 }
 
 app.use(bodyParser.json());
